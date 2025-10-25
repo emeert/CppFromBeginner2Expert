@@ -1,3 +1,11 @@
+
+/*
+    Author: Elijah Meert
+    File: ex141.cpp
+    Description: Simple age-checking application using the ternary operator.
+    Purpose: Demonstrates conditional logic and user input handling.
+*/
+
 #include <iostream>
 
 using namespace std; 
