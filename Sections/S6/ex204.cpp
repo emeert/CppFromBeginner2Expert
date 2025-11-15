@@ -117,9 +117,10 @@ int  check_Game_Result (char arr[3][3])
     p1_Point = 0;
     p2_Point = 0; 
 
+    //Check for a row win 
     for(int i = 0; i < 3; i++)
     {
-        //When checking rows score needs to reset on each pass of 
+        //When checking rows score needs to reset on each pass of i
         p1_Point = 0;
         p2_Point = 0; 
         
@@ -133,22 +134,80 @@ int  check_Game_Result (char arr[3][3])
             {
                 p2_Point++;
             }
+
+            if(p1_Point == 3)
+            {
+                cout << "Player 1 wins across row " << i+1 << endl;
+        
+                return 1; 
+            }
+            else if (p2_Point == 3)
+            {
+                cout << "Player 2 wins across row " << i+1 << endl;
+
+                return 1;  
+            }
         }
     
-        if(p1_Point == 3)
-        {
-            cout << "Player 1 wins across the row" << endl;
-    
-            return 1; 
-        }
-        else if (p2_Point == 3)
-        {
-            cout << "Player 2 wins across the row" << endl;
-
-            return 1;  
-        }
-
     }
+
+    //Check for a column win 
+    for(int i = 0; i < 3; i++)
+    {
+        //When checking columns score needs to reset on each pass of i
+        p1_Point = 0;
+        p2_Point = 0; 
+        
+        for(int j = 0; j < 3; j++)
+        {
+            if(arr[j][i] == 'X')
+            {
+                p1_Point++;
+            }
+            else if(arr[j][i] == 'O')
+            {
+                p2_Point++;
+            }
+
+            if(p1_Point == 3)
+            {
+                cout << "Player 1 wins across column " << i+1 << endl;
+        
+                return 1; 
+            }
+            else if (p2_Point == 3)
+            {
+                cout << "Player 2 wins across column " << i+1 << endl;
+
+                return 1;  
+            }
+        }
+    
+    }
+
+    bool isDraw = true; 
+    
+    for(int i = 0; i < 3; i++)
+    {
+        for(int j = 0; j < 3; j++)
+        {
+            if(arr[i][j] != 'X' && arr[i][j] != 'O')
+            {
+                isDraw = false; 
+                break;
+            }
+        }
+        if(isDraw)break;
+    }
+
+    if(isDraw)
+    {
+        cout << "The game ended in a draw." << endl;
+        return 2; 
+    }
+
+
+
     return 0; 
 
 }
