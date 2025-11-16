@@ -26,15 +26,47 @@ int main()
          5 .. 
 
     */
-
+/*
     for (int i = 1; i <= 10; i++)
     {
+        // if(i == 5)
+        // {
+        //       continue; // everything after this instruction wont be executed but loop will continue. 
+        // }
+
+        // if(i == 5)
+        // {
+        //     break; //everything after break wont be executed and we leave the loop. 
+        // }
+
         for (int j = 1; j <= 10; j++)
         {
+            // if(j == 5)
+            //     break; 
             cout.width(4);
             cout << i * j;
         }
         cout << endl;
+    }
+*/
+
+
+    for (int i = 1, j = 1; i <= 10; i++)
+    {
+        cout.width(4); 
+        
+        cout << i*j;
+        if(i == 10)
+        {
+            j++;
+            i = 0;
+            cout << endl;
+        }
+
+        if(j == 11)
+        {
+            break;
+        }
     }
 
     return 0; 

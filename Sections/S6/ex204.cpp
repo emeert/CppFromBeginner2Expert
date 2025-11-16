@@ -185,28 +185,25 @@ int  check_Game_Result (char arr[3][3])
     
     }
 
-    bool isDraw = true; 
-    
-    for(int i = 0; i < 3; i++)
+     // Check for draw
+    bool isDraw = true;
+    for (int i = 0; i < 3 && isDraw; i++)
     {
-        for(int j = 0; j < 3; j++)
+        for (int j = 0; j < 3; j++)
         {
-            if(arr[i][j] != 'X' && arr[i][j] != 'O')
+            if (arr[i][j] != 'X' && arr[i][j] != 'O')
             {
-                isDraw = false; 
+                isDraw = false;
                 break;
             }
         }
-        if(isDraw)break;
     }
 
-    if(isDraw)
+    if (isDraw)
     {
-        cout << "The game ended in a draw." << endl;
-        return 2; 
+        cout << "No win possible—the game ends in a draw." << endl;
+        return 2;
     }
-
-
 
     return 0; 
 
